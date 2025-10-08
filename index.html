@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabulator Pro System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Passcode Gate -->
+    <div id="passcodeGate" class="gate">
+        <div class="gate-content">
+            <h2>Tabulator Committee Access</h2>
+            <input type="password" id="passcodeInput" placeholder="Enter passcode">
+            <button id="enterSystem">Enter System</button>
+            <p id="passcodeError" class="error"></p>
+        </div>
+    </div>
+
+    <!-- Main System -->
+    <div id="mainSystem" class="hidden">
+        <header>
+            <h1>🎯 Tabulator Pro System</h1>
+            <div class="mode-selector">
+                <button id="offlineMode" class="mode-btn active">Offline Mode</button>
+                <button id="liveMode" class="mode-btn">Live-Sync Mode</button>
+            </div>
+        </header>
+
+        <!-- Admin Panel -->
+        <div class="admin-panel">
+            <h2>Admin Controls</h2>
+            
+            <!-- Candidate Management -->
+            <div class="control-group">
+                <h3>Candidates</h3>
+                <input type="text" id="candidateName" placeholder="Candidate Name">
+                <button id="addCandidate">Add Candidate</button>
+                <div id="candidateList" class="item-list"></div>
+            </div>
+
+            <!-- Criteria Management -->
+            <div class="control-group">
+                <h3>Criteria</h3>
+                <input type="text" id="criteriaName" placeholder="Criterion Name">
+                <input type="number" id="criteriaWeight" placeholder="Weight %" min="1" max="100">
+                <button id="addCriteria">Add Criteria</button>
+                <div id="criteriaList" class="item-list"></div>
+            </div>
+
+            <!-- Judge Management -->
+            <div class="control-group">
+                <h3>Judges</h3>
+                <input type="text" id="judgeName" placeholder="Judge Name">
+                <button id="addJudge">Add Judge</button>
+                <div id="judgeList" class="item-list"></div>
+            </div>
+
+            <!-- Firebase Config -->
+            <div id="firebaseConfig" class="hidden">
+                <h3>Live-Sync Setup</h3>
+                <input type="text" id="firebaseKey" placeholder="Paste Firebase Config Key">
+                <button id="saveFirebaseConfig">Save Config</button>
+                <select id="deviceRole">
+                    <option value="judge">Judge Device</option>
+                    <option value="main">Main Screen</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Scoring Interface -->
+        <div class="scoring-interface">
+            <div class="view-controls">
+                <select id="judgeSelector">
+                    <option value="all">Summary View (All Judges)</option>
+                </select>
+                <button id="exportCSV">Export to CSV</button>
+                <button id="printResults">Print Results</button>
+            </div>
+
+            <div id="scoringTableContainer">
+                <!-- Scoring table will be generated here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
